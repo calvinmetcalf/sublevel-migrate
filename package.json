@@ -1,0 +1,24 @@
+{
+  "name": "sublevel-migrate",
+  "version": "0.0.0",
+  "description": "Module to migrate from version 5 to 6 of sublevel",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/calvinmetcalf/sublevel-migrate.git"
+  },
+  "keywords": [
+    "sublevel",
+    "migrate",
+    "banana"
+  ],
+  "author": "Calvin W. Metcalf B.S.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/calvinmetcalf/sublevel-migrate/issues"
+  },
+  "homepage": "https://github.com/calvinmetcalf/sublevel-migrate"
+}
