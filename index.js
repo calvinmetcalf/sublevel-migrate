@@ -5,7 +5,11 @@ function identity (item){
   return item;
 }
 
-module.exports = function (db, callback) {
+module.exports = function (db, outDB, callback) {
+  if (typeof callback === 'undefined') {
+    callback = outDB;
+    outDB = db;
+  }
   db.createReadStream()
     .on('error', callback)
     .pipe(through(function (item, _, next) {
@@ -22,7 +26,7 @@ module.exports = function (db, callback) {
       next();
     }))
     .on('error', callback)
-    .pipe(db.createWriteStream())
+    .pipe(outDB.createWriteStream())
     .on('error', callback)
     .on('finish', function () {
       callback();
