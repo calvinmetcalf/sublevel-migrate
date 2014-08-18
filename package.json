@@ -20,5 +20,13 @@
   "bugs": {
     "url": "https://github.com/calvinmetcalf/sublevel-migrate/issues"
   },
-  "homepage": "https://github.com/calvinmetcalf/sublevel-migrate"
+  "homepage": "https://github.com/calvinmetcalf/sublevel-migrate",
+  "dependencies": {
+    "through2": "^0.6.1",
+    "bytewise": "^0.7.1",
+    "level-sublevel": "^6.3.1"
+  },
+  "devDependencies": {
+    "level": "^0.18.0"
+  }
 }

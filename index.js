@@ -1,5 +1,5 @@
 var through = require('through2').obj;
-var bytewise = require('bytewise');
+var bytewise = require('level-sublevel/codec');
 
 function identity (item){
   return item;
@@ -17,7 +17,7 @@ module.exports = function (db, callback) {
       var key = split.pop();
       this.push({
         key: bytewise.encode([split, key]),
-        value. item.value
+        value: item.value
       });
       next();
     }))
