@@ -16,7 +16,6 @@ rimraf.sync(tmp)
 mkdirp.sync(tmp)
 
 var db1 = level(path.join(__dirname, 'v5fixture'))
-var db2 = level(tmp)
 
 function all(db, cb) {
   var a = []
@@ -25,7 +24,9 @@ function all(db, cb) {
   .on('end', function () { cb(null, a) })
 }
 
-function testMigrate(migrate, sublevel, type) {
+var testMigrate = module.exports = function (migrate, sublevel, type) {
+
+  var db2 = level(tmp)
 
   tape('test migrate: ' + type, function (t) {
 
@@ -46,7 +47,9 @@ function testMigrate(migrate, sublevel, type) {
           t.deepEqual(a, expected)
           all(db3.sublevel('foo'), function (err, a) {
             t.deepEqual(a, expected)
-            t.end()
+            db1.close(function () {
+              t.end()
+            })
           })
         })
       })
@@ -55,7 +58,6 @@ function testMigrate(migrate, sublevel, type) {
   })
 
 }
-
-testMigrate(migrate, require('level-sublevel'), 'default')
-//-testMigrate(migrate, require('level-sublevel/bytewise'), 'bytewise')
+if(!module.parent)
+  testMigrate(migrate, require('level-sublevel'), 'default')
 
