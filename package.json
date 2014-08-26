@@ -1,10 +1,10 @@
 {
   "name": "sublevel-migrate",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Module to migrate from version 5 to 6 of sublevel",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test/index.js && node test/bytewise.js"
   },
   "repository": {
     "type": "git",
@@ -33,8 +33,5 @@
     "osenv": "~0.1.0",
     "mkdirp": "~0.5.0",
     "tape": "~2.14.0"
-  },
-  "scripts": {
-    "test": "node test/index.js && node test/bytewise.js"
   }
 }
