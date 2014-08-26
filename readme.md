@@ -22,3 +22,22 @@ migrate(level('db'), function (err) {
   }
 });
 ```
+
+## migrate to bytewise keys
+
+level-sublevel@6 now supports
+[bytewise](https://github.com/deanlandolt/bytewise) encoding
+on keys, this means you can use (nearly) any js value as a key,
+and ordering is well defined. to migrate to bytewise keys,
+use
+
+``` js
+//this is how you ask for sublevel with bytewise keys:
+var sublevel = require('level-sublevel/bytewise')
+
+migrate.bytewise(oldDb, newDb, function (err) {
+  //you can not use the new databaselike this:
+  var db = newDb(sublevel)
+})
+
+```
